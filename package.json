@@ -9,7 +9,9 @@
   "dependencies": {
     "expo": "^32.0.0",
     "react": "16.5.0",
-    "react-native": "https://github.com/expo/react-native/archive/sdk-32.0.0.tar.gz"
+    "react-mixin": "^2.0.2",
+    "react-native": "https://github.com/expo/react-native/archive/sdk-32.0.0.tar.gz",
+    "react-timer-mixin": "^0.13.4"
   },
   "devDependencies": {
     "babel-preset-expo": "^5.0.0"
