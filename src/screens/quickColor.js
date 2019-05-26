@@ -1,16 +1,10 @@
 import React from "react";
-import { View, Text, TouchableOpacity, StyleSheet, Alert } from "react-native";
+import { View, Text, TouchableOpacity, StyleSheet, Alert, StatusBar } from "react-native";
 import TimerMixin from "react-timer-mixin";
 
-import color from "./Services/colors";
-/*var Component = createReactClass({
-  mixins: [TimerMixin],
-  componentDidMount: function() {
-    this.setTimeout(() => {
-      console.warn("I do not leak!");
-    }, 500);
-  }
-});*/
+import color from "../Services/colors";
+import styles from '../stylesheet/styles';
+
 let max = color.length,
   min = 0;
 function genRandom() {
@@ -28,14 +22,11 @@ export default class QuickColor extends React.Component {
       timeElasped: 30,
       enabled: true
     };
-    //this.generateNewColourState();
+
   }
-  /*incrementer = setInterval(() => {
-    console.warn(1);
-    //this.setState({ timeElasped: this.state.timeElasped + 1 });
-  }, 1000);*/
+
   timer = setInterval(() => {
-    //console.warn("I do not leak!");
+
     this.setState({ timeElasped: this.state.timeElasped - 1 });
     if (this.state.timeElasped == 0) {
       clearInterval(this.timer);
@@ -79,13 +70,17 @@ export default class QuickColor extends React.Component {
       });
     }
   }
+
   render() {
     //console.warn(Math.floor(Math.random() * (+max - +min)) + +min);
     if (this.state.ready == true)
       return (
-        <View style={{ backgroundColor: "#ffffff", alignItems: "center" }}>
-          <Text>Points : {this.state.points}</Text>
-          <Text>Time Elasped : {this.state.timeElasped}</Text>
+        <View style={styles.gameScreen}>
+          <View style={styles.infoBar}>
+            <Text style={[this.state.points < 0 ? { color: '#ff0000' } : null, styles.infoText]}>Points : {this.state.points}</Text>
+            <Text style={[this.state.timeElasped < 10 ? { color: '#ff0000' } : null, styles.infoText]}>Time Elasped : {this.state.timeElasped}</Text>
+          </View>
+
           <View
             style={[
               { backgroundColor: color[this.state.block1Background].value },
@@ -119,11 +114,7 @@ export default class QuickColor extends React.Component {
             </Text>
           </View>
           <View
-            style={{
-              flexDirection: "row",
-              height: 20 + "%",
-              width: 70 + "%"
-            }}
+            style={styles.optionContainer}
           >
             {this.state.enabled ? (
               <React.Fragment>
@@ -205,6 +196,7 @@ export default class QuickColor extends React.Component {
               </TouchableOpacity>
             ) : null}
           </View>
+
         </View>
       );
     else
@@ -230,24 +222,3 @@ export default class QuickColor extends React.Component {
       );
   }
 }
-const styles = StyleSheet.create({
-  block: {
-    height: 20 + "%",
-    width: 50 + "%",
-    justifyContent: "center",
-    alignItems: "center",
-    //backgroundColor: "#00ffff",
-    margin: 5
-  },
-  option: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "#00ffff",
-    margin: 5
-  },
-  blockText: {
-    fontSize: 20,
-    fontWeight: "bold"
-  }
-});
