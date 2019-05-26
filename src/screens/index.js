@@ -1,6 +1,3 @@
-import QuickColor from './quickColor';
-import Start from './start';
-export {
-    QuickColor,
-    Start
-}
+import QuickColor from "./quickColor";
+import Start from "./start";
+export { QuickColor, Start };

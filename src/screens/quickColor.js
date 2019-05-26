@@ -1,9 +1,16 @@
 import React from "react";
-import { View, Text, TouchableOpacity, StyleSheet, Alert, StatusBar } from "react-native";
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  StyleSheet,
+  Alert,
+  StatusBar
+} from "react-native";
 import TimerMixin from "react-timer-mixin";
 
 import color from "../Services/colors";
-import styles from '../stylesheet/styles';
+import styles from "../stylesheet/styles";
 
 let max = color.length,
   min = 0;
@@ -22,11 +29,9 @@ export default class QuickColor extends React.Component {
       timeElasped: 30,
       enabled: true
     };
-
   }
 
   timer = setInterval(() => {
-
     this.setState({ timeElasped: this.state.timeElasped - 1 });
     if (this.state.timeElasped == 0) {
       clearInterval(this.timer);
@@ -77,8 +82,22 @@ export default class QuickColor extends React.Component {
       return (
         <View style={styles.gameScreen}>
           <View style={styles.infoBar}>
-            <Text style={[this.state.points < 0 ? { color: '#ff0000' } : null, styles.infoText]}>Points : {this.state.points}</Text>
-            <Text style={[this.state.timeElasped < 10 ? { color: '#ff0000' } : null, styles.infoText]}>Time Elasped : {this.state.timeElasped}</Text>
+            <Text
+              style={[
+                this.state.points < 0 ? { color: "#ff0000" } : null,
+                styles.infoText
+              ]}
+            >
+              Points : {this.state.points}
+            </Text>
+            <Text
+              style={[
+                this.state.timeElasped < 10 ? { color: "#ff0000" } : null,
+                styles.infoText
+              ]}
+            >
+              Time Elasped : {this.state.timeElasped}
+            </Text>
           </View>
 
           <View
@@ -113,9 +132,7 @@ export default class QuickColor extends React.Component {
               {color[this.state.block2TextDisplay].name}
             </Text>
           </View>
-          <View
-            style={styles.optionContainer}
-          >
+          <View style={styles.optionContainer}>
             {this.state.enabled ? (
               <React.Fragment>
                 <TouchableOpacity
@@ -196,7 +213,6 @@ export default class QuickColor extends React.Component {
               </TouchableOpacity>
             ) : null}
           </View>
-
         </View>
       );
     else
