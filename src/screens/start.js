@@ -12,7 +12,7 @@ export default class Start extends React.Component {
           style={styles.option}
           onPress={() => this.props.navigation.navigate("app")}
         >
-          <Text style={styles.blockText}>Start playing</Text>
+          <Text style={styles.blockText}>Start Playing</Text>
         </TouchableOpacity>
         <TouchableOpacity
           style={styles.option}
