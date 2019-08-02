@@ -7,7 +7,7 @@ export default class Start extends React.Component {
   }
   render() {
     return (
-      <View style={[styles.optionContainer, { flexDirection: "column" }]}>
+      <View style={[styles.homeContainer, { flexDirection: "column" }]}>
         <TouchableOpacity
           style={styles.option}
           onPress={() => this.props.navigation.navigate("app")}

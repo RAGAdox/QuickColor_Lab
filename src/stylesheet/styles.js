@@ -52,8 +52,21 @@ const styles = StyleSheet.create({
     height: 15 + "%",
     width: 95 + "%"
   },
+  homeContainer: {
+    flexDirection: "row",
+    height: 20 + "%",
+    width: 95 + "%"
+  },
   infoBar: {
-    alignItems: "center"
+    alignItems: "center",
+    backgroundColor: "#00ffff",
+    paddingLeft: 5 + "%",
+    paddingRight: 5 + "%",
+    borderBottomLeftRadius: 10,
+    borderBottomRightRadius: 10,
+    borderWidth: 0.6,
+    borderColor: "#00cccc",
+    borderTopWidth: 0
   },
   infoText: {
     fontSize: 20,
