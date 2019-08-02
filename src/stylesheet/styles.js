@@ -3,7 +3,7 @@ const styles = StyleSheet.create({
   container: {
     alignItems: "center",
     justifyContent: "center",
-    backgroundColor: "#D2691E",
+    backgroundColor: "#F7D744",
     flex: 1,
     width: 100 + "%",
     height: 100 + "%"
@@ -20,6 +20,7 @@ const styles = StyleSheet.create({
   },
   option: {
     flex: 1,
+    //height: 40 + "%",
     justifyContent: "center",
     alignItems: "center",
     backgroundColor: "#00ffff",
@@ -33,15 +34,22 @@ const styles = StyleSheet.create({
   gameScreen: {
     borderRadius: 10,
     flex: 1,
-    marginTop: StatusBar.currentHeight + 10,
+    marginTop: StatusBar.currentHeight + 20,
     marginBottom: 1 + "%",
     width: 95 + "%",
-    backgroundColor: "#ffffff",
+    backgroundColor: "#E5E2D6",
     alignItems: "center"
+  },
+  blockContainer: {
+    justifyContent: "center",
+    alignItems: "center",
+    flex: 1,
+    //backgroundColor: "#00ff00",
+    width: 100 + "%"
   },
   optionContainer: {
     flexDirection: "row",
-    height: 20 + "%",
+    height: 15 + "%",
     width: 95 + "%"
   },
   infoBar: {

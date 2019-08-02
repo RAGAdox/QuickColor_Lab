@@ -80,57 +80,61 @@ export default class QuickColor extends React.Component {
     //console.warn(Math.floor(Math.random() * (+max - +min)) + +min);
     if (this.state.ready == true)
       return (
-        <View style={styles.gameScreen}>
-          <View style={styles.infoBar}>
-            <Text
-              style={[
-                this.state.points < 0 ? { color: "#ff0000" } : null,
-                styles.infoText
-              ]}
-            >
-              Points : {this.state.points}
-            </Text>
-            <Text
-              style={[
-                this.state.timeElasped < 10 ? { color: "#ff0000" } : null,
-                styles.infoText
-              ]}
-            >
-              Time Elasped : {this.state.timeElasped}
-            </Text>
-          </View>
-
-          <View
-            style={[
-              { backgroundColor: color[this.state.block1Background].value },
-              styles.block
-            ]}
-          >
-            <Text
-              style={[
-                { color: color[this.state.block1Text].value },
-                styles.blockText
-              ]}
-            >
-              {color[this.state.correctIndex].name}
-            </Text>
-          </View>
-          <View
-            style={[
-              { backgroundColor: color[this.state.block2Background].value },
-              styles.block
-            ]}
-          >
-            <Text
-              style={[
-                {
-                  color: color[this.state.block2Text].value
-                },
-                styles.blockText
-              ]}
-            >
-              {color[this.state.block2TextDisplay].name}
-            </Text>
+        <React.Fragment>
+          <View style={styles.gameScreen}>
+            <View style={styles.infoBar}>
+              <Text
+                style={[
+                  this.state.points < 0 ? { color: "#ff0000" } : null,
+                  styles.infoText
+                ]}
+              >
+                Points : {this.state.points}
+              </Text>
+              <Text
+                style={[
+                  this.state.timeElasped < 10 ? { color: "#ff0000" } : null,
+                  styles.infoText
+                ]}
+              >
+                Time Elasped : {this.state.timeElasped}
+              </Text>
+            </View>
+            <View style={styles.blockContainer}>
+              <View
+                style={[
+                  { backgroundColor: color[this.state.block1Background].value },
+                  styles.block
+                ]}
+              >
+                <Text
+                  style={[
+                    { color: color[this.state.block1Text].value },
+                    styles.blockText
+                  ]}
+                >
+                  {color[this.state.correctIndex].name}
+                </Text>
+              </View>
+              <Text>{"\n\n\n"}</Text>
+              <View
+                style={[
+                  { backgroundColor: color[this.state.block2Background].value },
+                  styles.block
+                ]}
+              >
+                <Text
+                  style={[
+                    {
+                      color: color[this.state.block2Text].value
+                    },
+                    styles.blockText
+                  ]}
+                >
+                  {color[this.state.block2TextDisplay].name}
+                </Text>
+              </View>
+            </View>
           </View>
           <View style={styles.optionContainer}>
             {this.state.enabled ? (
@@ -154,7 +158,7 @@ export default class QuickColor extends React.Component {
                     this.generateNewColourState();
                   }}
                 >
-                  <Text>YES</Text>
+                  <Text style={styles.blockText}>YES</Text>
                 </TouchableOpacity>
                 <TouchableOpacity
                   style={styles.option}
@@ -176,7 +180,7 @@ export default class QuickColor extends React.Component {
                     this.generateNewColourState();
                   }}
                 >
-                  <Text>NO</Text>
+                  <Text style={styles.blockText}>NO</Text>
                 </TouchableOpacity>
               </React.Fragment>
             ) : null}
@@ -209,11 +213,11 @@ export default class QuickColor extends React.Component {
                   this.generateNewColourState();
                 }}
               >
-                <Text>restart</Text>
+                <Text style={styles.blockText}>Restart</Text>
               </TouchableOpacity>
             ) : null}
           </View>
-        </View>
+        </React.Fragment>
       );
     else
       return (
