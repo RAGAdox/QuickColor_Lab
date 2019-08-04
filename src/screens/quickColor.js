@@ -5,7 +5,8 @@ import {
   TouchableOpacity,
   StyleSheet,
   Alert,
-  StatusBar
+  StatusBar,
+  Vibration
 } from "react-native";
 import TimerMixin from "react-timer-mixin";
 
@@ -151,6 +152,7 @@ export default class QuickColor extends React.Component {
                         points: this.state.points + 100
                       });
                     } else {
+                      Vibration.vibrate(100);
                       this.setState({
                         points: this.state.points - 100
                       });
@@ -168,10 +170,12 @@ export default class QuickColor extends React.Component {
                       this.state.correctIndex != this.state.block2Background
                     ) {
                       console.warn("correct");
+
                       this.setState({
                         points: this.state.points + 100
                       });
                     } else {
+                      Vibration.vibrate(100);
                       this.setState({
                         points: this.state.points - 100
                       });
@@ -193,7 +197,9 @@ export default class QuickColor extends React.Component {
                     //console.warn("I do not leak!");
                     this.setState({ timeElasped: this.state.timeElasped - 1 });
                     if (this.state.timeElasped == 0) {
+                      Vibration.vibrate(300);
                       clearInterval(timer);
+
                       Alert.alert(
                         "Time Up",
                         "NO Time is left",
@@ -202,6 +208,7 @@ export default class QuickColor extends React.Component {
                             text: "OK",
                             onPress: () => {
                               console.warn("reset");
+
                               this.setState({ enabled: false });
                             }
                           }
